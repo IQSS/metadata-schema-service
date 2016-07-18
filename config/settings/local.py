@@ -43,19 +43,21 @@ if not os.path.isdir(TEST_DB_DIR):
     os.makedirs(TEST_DB_DIR)
 
 DATABASES = {
-    'xdefault': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'filemetadata',
-        'USER': 'dvnapp',
-        'PASSWORD': 'secret',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    },
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': join(TEST_DB_DIR, 'db_01.sqlite3'),
     }
 }
+"""
+'xdefault': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'filemetadata',
+    'USER': 'dvnapp',
+    'PASSWORD': 'secret',
+    'HOST': '127.0.0.1',
+    'PORT': '5432',
+},
+"""
 
 
 # CACHING

@@ -1,0 +1,50 @@
+[
+{
+    "model": "filemetadata.metadataschema",
+    "pk": 1,
+    "fields": {
+        "created": "2016-07-18T17:11:36.265Z",
+        "modified": "2016-07-18T17:13:54.031Z",
+        "dataverse_installation_id": "harvard-dataverse",
+        "title": "example",
+        "published": true,
+        "slug": "example",
+        "version": "1.00",
+        "schema": "{\"self\":{\"modified\":\"2016-07-18 17:13:36.033113+00:00\",\"description\":\"http://json-schema.org/example1.html\",\"contributor\":\"Dataverse core\",\"url\":\"/api/metadata/schema/example/1.00\",\"dataverse_installation_id\":\"harvard-dataverse\",\"version\":1.0},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"title\":\"Product\",\"description\":\"A product from Acme's catalog\",\"type\":\"object\",\"properties\":{\"id\":{\"description\":\"The unique identifier for a product\",\"type\":\"integer\"}},\"required\":[\"id\"]}",
+        "description": "http://json-schema.org/example1.html",
+        "contributor": "Dataverse core"
+    }
+},
+{
+    "model": "filemetadata.metadataschema",
+    "pk": 2,
+    "fields": {
+        "created": "2016-07-18T17:14:22.337Z",
+        "modified": "2016-07-18T19:57:02.678Z",
+        "dataverse_installation_id": "harvard-dataverse",
+        "title": "example",
+        "published": true,
+        "slug": "example",
+        "version": "2.00",
+        "schema": "{\"self\":{\"url\":\"/api/metadata/schema/example/2.00\",\"description\":\"version 2\\r\\nhttp://json-schema.org/example1.html\",\"dataverse_installation_id\":\"harvard-dataverse\",\"modified\":\"2016-07-18 17:54:17.621731+00:00\",\"version\":2.0,\"contributor\":\"Dataverse core\"},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"title\":\"Product\",\"description\":\"A product from Acme's catalog\",\"type\":\"object\",\"properties\":{\"id\":{\"description\":\"The unique identifier for a product\",\"type\":\"integer\"},\"name\":{\"description\":\"Name of the product\",\"type\":\"string\"}},\"required\":[\"id\",\"name\"],\"additionalProperties\":false}",
+        "description": "version 2\r\nhttp://json-schema.org/example1.html",
+        "contributor": "Dataverse core"
+    }
+},
+{
+    "model": "filemetadata.metadataschema",
+    "pk": 3,
+    "fields": {
+        "created": "2016-07-18T17:55:38.733Z",
+        "modified": "2016-07-18T19:56:39.884Z",
+        "dataverse_installation_id": "harvard-dataverse",
+        "title": "example",
+        "published": true,
+        "slug": "example",
+        "version": "3.00",
+        "schema": "{\"self\":{\"url\":\"/api/metadata/schema/example/3.00\",\"description\":\"http://json-schema.org/example1.html\",\"dataverse_installation_id\":\"harvard-dataverse\",\"modified\":\"2016-07-18 19:27:00.884296+00:00\",\"version\":3.0,\"contributor\":\"Dataverse core\"},\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"title\":\"Product\",\"description\":\"A product from Acme's catalog\",\"type\":\"object\",\"properties\":{\"id\":{\"description\":\"The unique identifier for a product\",\"type\":\"integer\"},\"name\":{\"description\":\"Name of the product\",\"type\":\"string\"},\"price\":{\"type\":\"number\",\"minimum\":0,\"exclusiveMinimum\":true},\"tags\":{\"type\":\"array\",\"items\":{\"type\":\"string\"},\"minItems\":1,\"uniqueItems\":true}},\"required\":[\"id\",\"name\",\"price\"]}",
+        "description": "http://json-schema.org/example1.html",
+        "contributor": "Dataverse core"
+    }
+}
+]

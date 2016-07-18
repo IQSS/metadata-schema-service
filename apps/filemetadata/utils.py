@@ -16,8 +16,16 @@ CHOSEN_VALIDATOR_CLASS = Draft4Validator
 ERR_NOTE_VALIDATOR_TYPE = '(Note: JSON schema Draft 4 validation was used)'
 
 # General error messages for Null (None) values
+ERR_MSG_JSON_CONVERSION_FAILED = 'The schema could not be converted to JSON.'
 ERR_MSG_SCHEMA_NONE = 'The schema was None (or null)'
 ERR_MSG_DATA_NONE = 'The JSON metadata was None (or null)'
+ERR_MSG_EMPTY_DICT = 'The JSON schema was empty.'
+
+# Acceptable schema versions
+ACCEPTABLE_SCHEMA_VERSIONS = ['http://json-schema.org/draft-04/schema#']
+ERR_NO_SCHEMA_SPECIFIED = 'Please specify an acceptable schema. example {"$schema" : "%s"}'\
+    % ACCEPTABLE_SCHEMA_VERSIONS[0]
+ERR_NOT_ACCEPTABLE_SCHEMA = 'The "$schema" value is not recognized.  %s' % ERR_NO_SCHEMA_SPECIFIED
 
 
 def format_error_message(jsonschema_err):
@@ -51,7 +59,8 @@ def validate_schema_string(schema_string):
     try:
         schema_dict = json.loads(schema_string, object_pairs_hook=OrderedDict)
     except ValueError as value_err:
-        return False, "The schema could not be converted to JSON."
+        return False, [ERR_MSG_JSON_CONVERSION_FAILED]
+
     return validate_schema(schema_dict)
 
 
@@ -63,8 +72,19 @@ def validate_schema(schema_dict):
     if schema_dict is None:
         return False, [ERR_MSG_SCHEMA_NONE]
 
+    if len(schema_dict) == 0:
+        return False, [ERR_MSG_EMPTY_DICT]
+
+    schema_string = schema_dict.get('$schema', None)
+    if schema_string is None:
+        return False, [ERR_NO_SCHEMA_SPECIFIED]
+    if not schema_string in ACCEPTABLE_SCHEMA_VERSIONS:
+        return False, [ERR_NOT_ACCEPTABLE_SCHEMA]
+
+
     try:
         CHOSEN_VALIDATOR_CLASS.check_schema(schema_dict)
+        #print ("looks ok:", schema_dict)
         return True, None
     except jsonschema.exceptions.SchemaError as schema_err:
         return False, format_error_message(schema_err)
