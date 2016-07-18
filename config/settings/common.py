@@ -46,6 +46,7 @@ LOCAL_APPS = (
     # custom users app
     'metadata_schema_service.users.apps.UsersConfig',
     # Your stuff: custom apps go here
+    'apps.filemetadata',
 )
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps

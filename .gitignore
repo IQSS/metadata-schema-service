@@ -62,3 +62,5 @@ metadata_schema_service/media/
 # Hitch directory
 tests/.hitch
 
+
+testdb/db_01.sqlite3
