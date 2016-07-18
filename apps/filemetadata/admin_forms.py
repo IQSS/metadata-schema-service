@@ -14,8 +14,11 @@ class FileMetadataForm(forms.ModelForm):
 
         success, err_msg = validate_filemetadata(schema.get_schema_dict(), metadata)
         if not success:
-            msg = 'The metadata does not comply with the schema.'
-            self.add_error('metadata', msg)
+            if err_msg:
+                user_msg = err_msg
+            else:
+                user_msg = 'The metadata does not comply with the schema.'
+            self.add_error('metadata', user_msg)
             #raise forms.ValidationError('The metadata does no comply with the schema.')
 
         return self.cleaned_data
